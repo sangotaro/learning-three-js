@@ -21,7 +21,7 @@ export default function Chapter01() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     // show axes in the screen
-    var axes = new THREE.AxisHelper(20);
+    var axes = new THREE.AxesHelper(20);
     scene.add(axes);
 
     // create the ground plane
@@ -77,7 +77,7 @@ export default function Chapter01() {
     camera.lookAt(scene.position);
 
     // add the output of the renderer to the html element
-    document.getElementById("WebGL-output").appendChild(renderer.domElement);
+    document.getElementById("WebGL-output")?.appendChild(renderer.domElement);
 
     // render the scene
     renderer.render(scene, camera);
