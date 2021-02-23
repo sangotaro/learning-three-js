@@ -16,6 +16,7 @@ const Chapter01: NextPage = () => {
   const frameId = useRef(0);
   const mount = useRef<HTMLDivElement>(null);
   const statsMount = useRef<HTMLDivElement>(null);
+  const gui = useRef<dat.GUI | null>(null);
 
   useEffect(() => {
     const stats = initStats();
@@ -80,6 +81,19 @@ const Chapter01: NextPage = () => {
 
     let step = 0;
 
+    const controls = {
+      rotationSpeed: 0.02,
+      bouncingSpeed: 0.03,
+    };
+    const initGUI = async () => {
+      const dat = (await import("dat.gui")).default;
+      if (!gui.current) {
+        gui.current = new dat.GUI();
+        gui.current.add(controls, "rotationSpeed", 0, 0.5);
+        gui.current.add(controls, "bouncingSpeed", 0, 0.5);
+      }
+    };
+
     const renderScene = () => {
       renderer.render(scene, camera);
     };
@@ -87,11 +101,11 @@ const Chapter01: NextPage = () => {
     const animate = () => {
       stats.update();
 
-      cube.rotation.x += 0.02;
-      cube.rotation.y += 0.02;
-      cube.rotation.z += 0.02;
+      cube.rotation.x += controls.rotationSpeed;
+      cube.rotation.y += controls.rotationSpeed;
+      cube.rotation.z += controls.rotationSpeed;
 
-      step += 0.04;
+      step += controls.bouncingSpeed;
       sphere.position.x = 20 + 10 * Math.cos(step);
       sphere.position.y = 2 + 10 * Math.abs(Math.sin(step));
 
@@ -110,10 +124,27 @@ const Chapter01: NextPage = () => {
     mount.current?.appendChild(renderer.domElement);
     window.addEventListener("resize", onResize, false);
     animate();
+    initGUI();
 
     return () => {
       window.cancelAnimationFrame(frameId.current);
       window.removeEventListener("resize", onResize);
+      gui.current?.destroy();
+      gui.current = null;
+
+      scene.remove(plane);
+      planeGeometry.dispose();
+      planeMaterial.dispose();
+
+      scene.remove(cube);
+      cubeGeometry.dispose();
+      cubeMaterial.dispose();
+
+      scene.remove(sphere);
+      sphereGeometry.dispose();
+      sphereMaterial.dispose();
+
+      renderer.dispose();
     };
   }, []);
 
