@@ -2507,10 +2507,10 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier-plugin-import-sort@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-import-sort/-/prettier-plugin-import-sort-0.0.6.tgz#c962437858ee30c85f4a8d8fe7b08a937a622b2f"
-  integrity sha512-saJ0JjaaZzZ2ZFSMrg2zXHElQujcqYko9wZwnL/Ey5GQ2omUytZwx+V3UKPe0fKtsjJZ6PqdLxGYhhWIN3SQrA==
+prettier-plugin-import-sort@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-import-sort/-/prettier-plugin-import-sort-0.0.7.tgz#b13dcc4de98940b99066a9e34606a955d109b546"
+  integrity sha512-O0KlUSq+lwvh+UiN3wZDT6wWkf7TNxTVv2/XXE5KqpRNbFJq3nRg2ftzBYFFO8QGpdWIrOB0uCTCtFjIxmVKQw==
   dependencies:
     import-sort "^6.0.0"
     import-sort-config "^6.0.0"
