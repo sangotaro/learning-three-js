@@ -26,7 +26,7 @@
     "@typescript-eslint/parser": "4.15.2",
     "eslint": "7.20.0",
     "eslint-config-prettier": "8.0.0",
-    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react": "7.34.1",
     "import-sort-style-module": "6.0.0",
     "prettier": "2.2.1",
     "prettier-plugin-import-sort": "0.0.6",
